@@ -180,6 +180,10 @@ body {
   cursor: pointer;
 }
 
+.heart-icon { 
+  color: red;
+}
+
 .post .conteudo img {
   width: 100%;
 }

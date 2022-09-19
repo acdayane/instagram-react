@@ -1,28 +1,45 @@
 import React from "react"
 
-export default function Usuario() {
-
-    const [photo, setPhoto] = React.useState("assets/img/catanacomics.svg")  
-    const [user, setUser] = React.useState('Catana')
+function PropsUser (props) {
 
     function whoAreYou (){
-        setUser(prompt ('Olá! Qual é o seu nome?'))   
+        props.setUser(prompt ('Olá! Qual é o seu nome?'))   
     }
     
     function yourPhoto () {
-        setPhoto(prompt ('Coloque uma URL para sua foto de perfil:'))     
+        props.setPhoto(prompt ('Coloque uma URL para sua foto de perfil:'))     
     }
 
     return (
         <div class="usuario">
-            <img src={photo} onClick={yourPhoto} />
+            <img src={props.image} onClick={yourPhoto} />
             <div class="texto">
-                <strong>{user.toLowerCase()}comics</strong>
+                <strong>{props.nameInstagram}</strong>
                 <span>
-                    {user}
+                    {props.name}
                     <ion-icon name="pencil" onClick = {whoAreYou}></ion-icon>
                 </span>
             </div>
         </div>
     )
+    
+}
+
+export default function Usuario() {
+
+    const [photo, setPhoto] = React.useState("assets/img/catanacomics.svg")  
+    const [user, setUser] = React.useState('Catana')
+
+    return (
+        
+            <PropsUser
+                name={user}
+                nameInstagram='catanacomics'
+                image={photo}
+                setPhoto = {setPhoto}
+                setUser= {setUser}
+            />
+        
+    )
+   
 }

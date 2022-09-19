@@ -41,7 +41,6 @@ function Post({userPic,userName,picture,joinPic,joinName}) {
 
     function salvarPost() {
         (savePost === 'bookmark-outline') ? setSavePost("bookmark") : setSavePost("bookmark-outline")
-        setSavePost("bookmark")
     }
 
     const [like, setLike] = React.useState("heart-outline")
